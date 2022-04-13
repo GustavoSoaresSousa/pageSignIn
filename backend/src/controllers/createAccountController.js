@@ -1,12 +1,25 @@
 const CreateAccount = require('../models/CreateAccount')
 
-CreateAccount.create({
-  email: 'gustavosoaresexamplo@email.com',
-  password: '123456',
-})
-  .then(dados => console.log(dados))
-  .catch(e => console.log(e));
+class CreateAccountController {
+  async store(req, res) {
+    try{
+      const {firstName, lastName, email, password} = req.body;
 
-exports.login = (req, res) => {
-  res.send('Hello world')
+      if(!firstName || !email || !password) {
+        return res.status(404).json({error: "Required a First Name | E-mail | Password"});
+      }
+      const newUser = await CreateAccount.create(req.body);
+      return res.json({firstName, lastName, email, password});
+    }catch(e){
+      return console.log(e)
+    }
+  }
+
+  async index(req, res) {
+    const users = await CreateAccount.find();
+    // const { firstName, lastName, email, password } = user;
+    return res.json(users);
+  }
 }
+
+module.exports = new CreateAccountController();

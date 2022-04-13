@@ -1,19 +1,21 @@
 const express = require('express');
 require('dotenv').config();
 
-const routes = require('./routes/routes')
+// const bodyParser = require('body-parser');
+
+const createAccountRoute = require('./routes/createAccountRoute')
 class App {
   constructor() {
     this.app = express();
+    this.middleware();
     this.routes();
-    this.middlewares();
+  }
+  middleware() {
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(express.json());
   }
   routes() {
-    this.app.use(routes);
-  }
-  middlewares() {
-    this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(express.json())
+    this.app.use('/', createAccountRoute);
   }
 }
 
