@@ -1,9 +1,10 @@
 const express = require('express');
 require('dotenv').config();
 
-// const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const createAccountRoute = require('./routes/createAccountRoute')
+const createAccountRoute = require('./routes/createAccountRoute');
+
 class App {
   constructor() {
     this.app = express();
@@ -11,11 +12,12 @@ class App {
     this.routes();
   }
   middleware() {
+    this.app.use(cors());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
   }
   routes() {
-    this.app.use('/', createAccountRoute);
+    this.app.use('/createAccount', createAccountRoute);
   }
 }
 
