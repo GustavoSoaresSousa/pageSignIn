@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const createAccountRoute = require('./routes/createAccountRoute');
 
+
 class App {
   constructor() {
     this.app = express();
@@ -17,7 +18,7 @@ class App {
     this.app.use(express.json());
   }
   routes() {
-    this.app.use('/createAccount', createAccountRoute);
+    this.app.use('/createAccount/', createAccountRoute);
   }
 }
 

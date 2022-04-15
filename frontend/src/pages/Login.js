@@ -1,8 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
+import api  from '../services/api';
+import { useNavigate } from 'react-router-dom'
 
 import '../styles/createAccountStyle.css';
 
+const userData = {
+  email: '',
+  password: ''
+}
+
 export  function Login() {
+  const [user, setUser] = useState(userData)
+  const navigate = useNavigate();
+
+  function handleInput(e) {
+    const { value, name } = e.target;
+    setUser({
+      ...user,
+      [name]: value
+    })
+  }
+
+  async function handleSubmit(e){
+    e.preventDefault();
+
+    if(!user.email || !user.password) return alert('Please fill in all fields')
+
+    const response = await api.post('/createAccount/login', {
+      email: user.email,
+      passwordVirtual: user.password
+    });
+    console.log(response);
+    setUser(userData);
+    navigate('/home')
+  }
+
   return (
     <div className="app">
       <div className="container">
@@ -13,12 +46,12 @@ export  function Login() {
             <p>don't have an account?<a href="#">Create Account</a></p>
           </div>
             <div className="form-container-login">
-              <form>
+              <form onSubmit={handleSubmit}>
                   <div className="input-group">
-                  <input type="email" placeholder="Email"  className="input" />
-                  <input type="password" placeholder="Password"  className="input-password" />
+                  <input type="email" placeholder="Email"  className="input" required name="email" value={user.email} onChange={handleInput} />
+                  <input type="password" placeholder="Password" className="input-password" required name="password" value={user.password} onChange={handleInput}  />
                   </div>
-                  <button className="button-create">Create account</button>
+                  <button type="submit" className="button-create">Login in</button>
               </form>
             </div>
         </main>

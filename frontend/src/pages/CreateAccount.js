@@ -33,10 +33,11 @@ export  function CreateAccount() {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      password: user.password
+      passwordVirtual: user.password
     });
+    console.log(response)
     setUser(userData);
-    navigate('/home')
+    navigate('/')
   }
 
   return (
