@@ -11,7 +11,9 @@ const userData = {
 }
 
 export  function Login() {
-  const [user, setUser] = useState(userData)
+  const [user, setUser] = useState(userData);
+  const [userLogged, setUserLogged] = useState({token: '', firstName: '', lastName: '',});
+
   const navigate = useNavigate();
 
   function handleInput(e) {
@@ -31,7 +33,14 @@ export  function Login() {
       email: user.email,
       passwordVirtual: user.password
     });
-    console.log(response);
+    const data = response.data
+    if(response) {
+      setUserLogged({
+        token: data.token,
+        firstName: data.firstName,
+        lastName: data.lastName
+      })
+    }
     setUser(userData);
     navigate('/home')
   }

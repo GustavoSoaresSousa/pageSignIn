@@ -81,10 +81,10 @@ class CreateAccountController {
           return;
         }
       }
-      const secret = process.env.TOKEN_SECRET
-      const token = jwt.sign({id: user._id}, secret)
-
-      return res.status(200).json({msg: "Authentication done successfully", token})
+      const secret = process.env.TOKEN_SECRET;
+      const token = jwt.sign({id: user._id}, secret);
+      const { firstName, lastName } = user;
+      return res.status(200).json({msg: "Authentication done successfully", token, firstName, lastName});
     } catch (e) {
       return console.log(e);
     }
