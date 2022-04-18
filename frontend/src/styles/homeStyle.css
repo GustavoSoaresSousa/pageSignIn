@@ -1,0 +1,21 @@
+.div-home-container {
+  height: 100vh;
+}
+
+.div-home-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 75px;
+
+  margin: 64px;
+
+  background: #070707;
+  color: #c1eeff;
+
+  font-size: 1.3rem;
+
+  border-radius: 12px;
+}
