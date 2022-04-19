@@ -22,3 +22,26 @@
  <li>Redux</li>
  <li>Axios</li>
 </ul>
+
+## Getting started
+
+Clone the project and access the folder.
+
+```bash
+git clone https://github.com/GustavoSoaresSousa/pageSignIn
+
+cd pageSignIn
+```
+
+Use npm i or yarn to install all dependecies.
+
+After start the project.
+
+```bash
+npm start
+
+or
+
+yarn start
+```
+You can see the project accessing browser at http://localhost:3000
