@@ -5,6 +5,7 @@ import { FiLogOut } from 'react-icons/fi';
 
 import {Link, useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
+import api from '../../services/api';
 import { logOut } from '../../redux/userSlice'
 
 export function Header(){
@@ -14,6 +15,11 @@ export function Header(){
   const handleLogOut = () => {
     dispatch(logOut());
     navigate('/login')
+    localStorage.removeItem('token');
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('lastName');
+    localStorage.removeItem('id');
+    api.defaults.headers.Authorization = undefined;
   }
   return (
     <header className="header-container">

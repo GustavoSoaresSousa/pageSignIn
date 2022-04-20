@@ -15,7 +15,6 @@ const userData = {
 
 export  function CreateAccount() {
   const [user, setUser] = useState(userData);
-  console.log(user);
   const navigate = useNavigate();
 
   function handleInput(e) {
@@ -38,7 +37,6 @@ export  function CreateAccount() {
       email: user.email,
       passwordVirtual: user.password
     });
-    console.log(response)
     setUser(userData);
     navigate('/login')
   }

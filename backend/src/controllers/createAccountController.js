@@ -83,8 +83,8 @@ class CreateAccountController {
       }
       const secret = process.env.TOKEN_SECRET;
       const token = jwt.sign({id: user._id}, secret);
-      const { firstName, lastName } = user;
-      return res.status(200).json({msg: "Authentication done successfully", token, firstName, lastName});
+      const { _id, firstName, lastName } = user;
+      return res.status(200).json({msg: "Authentication done successfully", token, firstName, lastName, _id});
     } catch (e) {
       return console.log(e);
     }
@@ -96,7 +96,7 @@ class CreateAccountController {
     const user = await CreateAccountModel.findById( id, '-password' );
     if(!user) return res.status(404).json({error: "user not exists"})
 
-    res.status(200).json({ user });
+    res.status(200).json({msg:"You are logged and authetication", logged: true});
   }
 }
 

@@ -13,7 +13,6 @@ const userData = {
 
 export function Login() {
   const [user, setUser] = useState(userData);
-  const [userLogged, setUserLogged] = useState({ token: '', firstName: '', lastName: ''});
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,12 +35,11 @@ export function Login() {
     });
     const data = response.data
     if (response) {
-      setUserLogged({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        token: data.token,
-      })
-      dispatch(changeUser({firstName: data.firstName, lastName: data.lastName, token: data.token}));
+      dispatch(changeUser({firstName: data.firstName, lastName: data.lastName, token: data.token, id: data._id}));
+      localStorage.setItem('token', JSON.stringify(data.token));
+      localStorage.setItem('id', JSON.stringify(data._id));
+      localStorage.setItem('firstName', JSON.stringify(data.firstName));
+      localStorage.setItem('lastName', JSON.stringify(data.lastName));
     }
     setUser(userData);
     navigate('/home')

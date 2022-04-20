@@ -7,6 +7,7 @@ export const slice = createSlice({
     firstName: '', 
     lastName: '',
     token: '',
+    id: ''
     },
     isLogged: false,
   },
@@ -16,6 +17,7 @@ export const slice = createSlice({
         firstName: payload.firstName,
         lastName: payload.lastName,
         token: payload.token,
+        id: payload.id
       }}
     },
     logOut(state){
@@ -23,6 +25,7 @@ export const slice = createSlice({
         firstName: '', 
         lastName: '',
         token: '',
+        id: ''
         }}
     },
   }
