@@ -13,7 +13,7 @@ export function Home() {
     <div className="div-home-container">
       <Header />
       <div className="div-home-content" >
-        <p>Welcome to home {firstName}, you are logged!</p>
+        <p>Welcome to home {lastName !== ' ' ? `${firstName} ${lastName}` : firstName }, you are logged!</p>
       </div>
     </div>
   )
