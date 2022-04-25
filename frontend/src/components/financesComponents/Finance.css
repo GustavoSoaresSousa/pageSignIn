@@ -1,0 +1,91 @@
+.div-finance-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 75px;
+
+  margin: 64px;
+
+  background: rgb(96, 112, 233);
+  color: #c1eeff;
+
+  font-size: 1.3rem;
+
+  border-radius: 12px;
+}
+
+.div-finance-container-extra{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 64px;
+
+  background: rgb(96, 112, 233);
+  color: #c1eeff;
+
+  font-size: 1.3rem;
+
+  border-radius: 12px;
+}
+
+.div-finance-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(96, 112, 233);
+  color: #c1eeff;
+  border-radius: 12px;
+  padding-bottom: 8px;
+  width: 70%;
+}
+
+.info-finance {
+  width: 100%;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center
+}
+
+thead {
+  width: 100%;
+  border-bottom: 1px solid #070707;
+}
+tbody {
+  width: 97%;
+  margin-top: 16px;
+}
+.td-functions {
+  display: flex;
+  cursor: pointer;
+}
+
+tr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.content {
+  display: flex;
+  justify-content:space-between;
+  width: 70%;
+}
+
+.new-finance:hover{
+  background: white;
+  cursor: pointer;
+}
+
+.div-inputs{
+  border-bottom: 1px solid #000;
+}

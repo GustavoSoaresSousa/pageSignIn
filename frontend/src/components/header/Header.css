@@ -1,7 +1,7 @@
 .header-container {
   height: 50px;
-  background: #070707;
-  color: #c1eeff;
+  background: rgb(96, 112, 233);
+  color: #070707;
   font-size: 1.2rem;
 }
 
@@ -24,17 +24,17 @@
 }
 
 .div-header-content div svg {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.8em;
+  height: 1.8em;
 }
 
 .div-header-content div button {
-  background: #070707;
-  color: #c1eeff;
+  background: rgb(96, 112, 233);
+  color: #070707;
   cursor: pointer;
 }
 
 .div-header-content div button svg {
-  width: 2em;
-  height: 2em;
+  width: 1.8em;
+  height: 1.8em;
 }
