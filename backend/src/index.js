@@ -4,6 +4,8 @@ require('dotenv').config();
 const cors = require('cors');
 
 const createAccountRoute = require('./routes/createAccountRoute');
+const dashFinaceRoute = require('./routes/dashFinanceRoutes');
+
 
 
 class App {
@@ -19,6 +21,7 @@ class App {
   }
   routes() {
     this.app.use('/createAccount/', createAccountRoute);
+    this.app.use('/finances/', dashFinaceRoute);
   }
 }
 

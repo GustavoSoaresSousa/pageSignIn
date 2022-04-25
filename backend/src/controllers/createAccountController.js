@@ -1,6 +1,5 @@
 const CreateAccountModel = require('../models/CreateAccount');
 const jwt = require('jsonwebtoken');
-const validator = require('validator');
 const bcrypt = require('bcrypt')
 
 class CreateAccountController {
